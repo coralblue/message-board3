@@ -30,14 +30,14 @@ class MessagesController < ApplicationController
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
     end
+
+  end
     
     def destroy
     @message.destroy
     redirect_to root_path, notice: 'メッセージを削除しました'
     end
     
-  end
-  
   private
   
   def message_params

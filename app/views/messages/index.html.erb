@@ -4,18 +4,26 @@
   </div>
 
   <div class="panel-body">
+    <div class="row">
+      <div class = " col-md-1 "><span class="label label-default">年齢 </span></div>
+      <div class = " col-md-1 "><span class="label label-info">名前 </span></div>
+      <div class = " col-md-1 "><span class="label label-warning">内容 </span></div>
+    </div>
+     
     <% @messages.each do |message| %>
-    <div class="form-group"> <div class="control-label col-sm-1 "><span class="label label-default">年齢</span><%= message.age %></div>
-    <div class="form-group"> <div class="control-label col-sm-1 "><span class="label label-info">名前</span><%= message.name %></div>
-    <div class="form-group"> <div class="control-label col-sm-2 "><span class="label label-warning">内容</span><%= message.body %></div>
-     <!--<%= text_area_tag 'page[message]' %>-->
-    <div class="form-group"> <div class="control-label col-sm-1, col-sm-2">(<%= link_to "edit" , edit_message_path(message) %>/
-    <%= link_to "delete" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)</div>
-        
-      <br>
-      　</div>  
+      <div class="row">
+      <div class="col-md-1"><%= message.age %></div>
+      <div class="col-md-1"><%= message.name %></div>
+      <div class="col-md-1"><%= message.body %></div>
+      <!--<%#= text_area_tag 'page[message]' %>-->
+      <div class="col-md-2">
+          (<%= link_to "edit" , edit_message_path(message) %>/
+          <%= link_to "delete" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)
+        </div> 
+      </div>
     <% end %>
-  </div>
-</div>
+    </div>  <!-- panel body -->
+  </div> <!-- panel -->
+
 
 <%= render 'form' %>
